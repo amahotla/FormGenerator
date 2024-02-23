@@ -57,10 +57,6 @@ const htmlForm = `<!DOCTYPE html>
           background-position: 0% 50%;
         }
       }
-      /* input[type="submit"]:hover {
-        background-color: #3E8E41;
-        color: white;
-      } */
       input[type="submit"]:hover {
         transform: scale(1.02);
         transform: translateY(-2px); /* Optional: Add slight lift on hover */
@@ -137,12 +133,10 @@ const htmlForm = `<!DOCTYPE html>
         submitButton.disabled = !isNotEmpty;
       }
 
-      // Add event listeners to update the submit button status on input
       form.name.addEventListener("input", updateSubmitButton);
       form.email.addEventListener("input", updateSubmitButton);
       form.phone.addEventListener("input", updateSubmitButton);
 
-      // Initial check to disable the button if any input is empty
       updateSubmitButton();
 
       form.addEventListener("submit", async (e) => {
