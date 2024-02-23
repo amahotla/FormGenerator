@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const htmlForm = `<!DOCTYPE html>
 <html>
@@ -197,8 +199,6 @@ function App() {
   const [webhookUrl, setWebhookUrl] = useState("");
   const [redirectUrl, setRedirectUrl] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
-  const [modifiedForm, setModifiedForm] = useState(htmlForm);
-  const [displayHtmlCode, setDisplayHtmlCode] = useState(false);
 
   useEffect(() => {
     if (webhookUrl.length > 0 && redirectUrl.length > 0) setIsDisabled(false);
@@ -224,16 +224,16 @@ function App() {
       "redirectUrl",
       quotedRedirectUrl
     );
-    setModifiedForm(modifiedHtmlForm);
-    setDisplayHtmlCode(true);
-    // Additional logic to utilize modifiedHtmlForm as needed (e.g., rendering in an iframe or opening in a new window)
+    navigator.clipboard.writeText(modifiedHtmlForm);
+    toast.info("Text copied to cliboard!");
   };
 
   return (
     <div>
-      <h1 className="text-4xl font-medium mb-10">Unpaid Form</h1>
+      <ToastContainer />
+      <h1 className="mb-10 text-4xl font-medium">Unpaid Form</h1>
       <form
-        className="flex flex-col gap-2 items-center"
+        className="flex flex-col items-center gap-2"
         onSubmit={handleSetData}
       >
         <label>
@@ -255,11 +255,10 @@ function App() {
         <input
           type="submit"
           value="Set Data"
-          className="bg-green-500 rounded-lg mt-2 disabled:opacity-50 cursor-pointer w-48"
+          className="mt-2 w-48 cursor-pointer rounded-lg bg-green-500 disabled:opacity-50"
           disabled={isDisabled}
         />
       </form>
-      <div className="mt-10">{displayHtmlCode ? modifiedForm : null}</div>
     </div>
   );
 }
