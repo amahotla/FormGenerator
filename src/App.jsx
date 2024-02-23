@@ -72,7 +72,6 @@ const htmlForm = `<!DOCTYPE html>
         background-color: #fff;
         background-image: url("https://icon-library.com/images/dropdown-arrow-icon/dropdown-arrow-icon-11.jpg");
         background-size: 0.2em;
-        /* background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M81.1 213.9l74.8 74.8c4.7 4.7 12.3 4.7 17 0l74.8-74.8c4.7-4.7 4.7-12.3 0-17l-9.9-9.9c-4.7-4.7-12.3-4.7-17 0L256 251.2l-51.8-51.8c-4.7-4.7-12.3-4.7-17 0l-9.9 9.9c-4.7 4.7-4.7 12.3 0 17zM400 192h-96c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h96c8.8 0 16-7.2 16-16v-96c0-8.8-7.2-16-16-16z"></path></svg>'); */
         background-repeat: no-repeat;
         background-position: 97%;
         background-size: 18px;
@@ -144,7 +143,7 @@ const htmlForm = `<!DOCTYPE html>
         const submitButton = document.getElementById("submit_button");
         submitButton.disabled = true;
         submitButton.value = "Submitting...";
-        // document.querySelector("#submit_button").disabled = true;
+
         const urlParams = new URLSearchParams(window.location.search);
         const utm_source = urlParams.get("utm_source");
         const utm_medium = urlParams.get("utm_medium");
