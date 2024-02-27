@@ -21,7 +21,7 @@ function App() {
         </button>
         <button
           className={`${selectedMode === "Paid" && "bg-sky-500"}`}
-          onClick={() => handleSelectChange("Paid")}
+          // onClick={() => handleSelectChange("Paid")}
         >
           Paid Form
         </button>
