@@ -236,7 +236,7 @@ function UnpaidForm() {
   return (
     <div>
       <ToastContainer />
-      <h1 className="mb-10 text-4xl font-medium">
+      <h1 className="mb-10 text-2xl md:text-4xl font-medium">
         Unpaid/Paid <br /> Without UTM Form
       </h1>
       <form
@@ -247,24 +247,26 @@ function UnpaidForm() {
           <p>Webhook Type: </p>
           <select
             onChange={(e) => setHookType(e.target.value)}
-            className="w-fit p-1"
+            className="w-fit rounded-md"
           >
             <option value="Pabbly">Pabbly</option>
             <option value="Zapier">Zapier</option>
           </select>
         </div>
-        <div className="w-full flex items-center justify-between gap-6">
+        <div className="w-full flex items-center justify-between">
           <p>Webhook: </p>
           <input
             type="text"
+            className="rounded-md"
             value={webhookUrl}
             onChange={(e) => setWebhookUrl(e.target.value)}
           />
         </div>
-        <div className="w-full flex items-center justify-between gap-6">
-          <p>Redirect/Payment Link: </p>
+        <div className="w-full flex items-center gap-2 justify-between">
+          <p>Redirect/Payment: </p>
           <input
             type="text"
+            className="rounded-md"
             value={redirectUrl}
             onChange={(e) => setRedirectUrl(e.target.value)}
           />

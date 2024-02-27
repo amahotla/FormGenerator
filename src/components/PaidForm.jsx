@@ -288,7 +288,7 @@ function PaidForm() {
   };
 
   return (
-    <div>
+    <div className="min-w-80">
       <ToastContainer />
       <h1 className="mb-10 text-4xl font-medium">Paid UTM Form</h1>
       <form
@@ -299,9 +299,9 @@ function PaidForm() {
           <p>Client: </p>
           <select
             onChange={(e) => setEndpoint(e.target.value)}
-            className="w-fit"
+            className="w-fit rounded-md"
           >
-            <option value="AMARESH">Amaresh</option>
+            <option value="SANDEEP GUPTA">Sandeep Gupta</option>
             <option value="BALAJI">Balaji</option>
           </select>
         </div>
@@ -309,6 +309,7 @@ function PaidForm() {
           <p>Amount: </p>
           <input
             type="text"
+            className="rounded-md"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
@@ -317,6 +318,7 @@ function PaidForm() {
           <p>Purpose: </p>
           <input
             type="text"
+            className="rounded-md"
             value={purpose}
             onChange={(e) => setPurpose(e.target.value)}
           />
@@ -326,6 +328,7 @@ function PaidForm() {
           <p>Webhook: </p>
           <input
             type="text"
+            className="rounded-md"
             value={webhookUrl}
             onChange={(e) => setWebhookUrl(e.target.value)}
           />
@@ -334,6 +337,7 @@ function PaidForm() {
           <p>Redirect: </p>
           <input
             type="text"
+            className="rounded-md"
             value={redirectUrl}
             onChange={(e) => setRedirectUrl(e.target.value)}
           />

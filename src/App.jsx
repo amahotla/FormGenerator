@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div>
-      {/* <div className="space-x-4 mb-10">
+      <div className="space-x-4 mb-10">
         <button
           className={`${selectedMode === "Unpaid" && "bg-sky-500"}`}
           onClick={() => handleSelectChange("Unpaid")}
@@ -25,9 +25,8 @@ function App() {
         >
           Paid Form
         </button>
-      </div> */}
-      {/* {selectedMode === "Unpaid" ? <UnpaidForm /> : <PaidForm />} */}
-      <UnpaidForm />
+      </div>
+      {selectedMode === "Unpaid" ? <UnpaidForm /> : <PaidForm />}
     </div>
   );
 }
