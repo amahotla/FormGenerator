@@ -153,8 +153,22 @@ const htmlForm = `<!DOCTYPE html>
         const utm_content = urlParams.get("utm_content");
         const utm_term = urlParams.get("utm_term");
         const utm_id = urlParams.get("utm_id");
-        const adsetname = urlParams.get("adset name");
-        const adname = urlParams.get("ad name");
+       const adsetName =
+          urlParams.get("adset name") ||
+          urlParams.get("adset_name") ||
+          urlParams.get("adsetname");
+        const adname =
+          urlParams.get("ad name") ||
+          urlParams.get("ad_name") ||
+          urlParams.get("adname");
+
+        const sanitizedAdsetName = adsetName
+          ? adsetName.replace(/\s+/g, "").replace(/\+/g, "%20")
+          : "";
+
+        const sanitizedAdname = adname
+          ? adname.replace(/\s+/g, "").replace(/\+/g, "%20")
+          : "";
 
         const formData = {
           name: form.name.value,
@@ -167,8 +181,8 @@ const htmlForm = `<!DOCTYPE html>
           utm_content: utm_content,
           utm_term: utm_term,
           utm_id: utm_id,
-          adsetname: adsetname,
-          adname: adname,
+          adsetname: sanitizedAdsetName,
+          adname: sanitizedAdname,
           landingPageSource: window.location.href,
         };
         try {
@@ -257,7 +271,7 @@ function UnpaidForm() {
           <p>Webhook: </p>
           <input
             type="text"
-            className="rounded-md"
+            className="rounded-md py-1 px-2"
             value={webhookUrl}
             onChange={(e) => setWebhookUrl(e.target.value)}
           />
@@ -266,7 +280,7 @@ function UnpaidForm() {
           <p>Redirect/Payment: </p>
           <input
             type="text"
-            className="rounded-md"
+            className="rounded-md py-1 px-2"
             value={redirectUrl}
             onChange={(e) => setRedirectUrl(e.target.value)}
           />
